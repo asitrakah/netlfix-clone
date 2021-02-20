@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import "./Nav.css"
 function Nav() {
     const [show, handleShow] = useState(false);
+    const dispatch = useDispatch();
 
     const [open, setOpen] = useState(true);
 
@@ -25,6 +27,10 @@ function Nav() {
             handleShow(false);
         }
     }
+    const logout = () => {
+        localStorage.setItem('emailCo', '');
+    }
+
     useEffect(() => {
         window.addEventListener("scroll", transitionNavBar);
         return () => window.removeEventListener("scroll", transitionNavBar);
@@ -43,7 +49,7 @@ function Nav() {
                             <i className="fas fa-times"></i>
                         </div>
                         <li><a href="#">HOME </a></li>
-                        <li><a href="#">MENU </a></li>
+                        <li><a href="#" onClick={logout}>MENU </a></li>
 
                     </ul>
                 </div>

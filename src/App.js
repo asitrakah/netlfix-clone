@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+
 import './App.css';
 import Home from './components/home/Home';
 import {
@@ -9,9 +9,18 @@ import {
   Route,
 } from "react-router-dom";
 import Login from './components/login/Login';
+import { selectUser } from './features/userSlice';
+import { useSelector } from 'react-redux';
 
 function App() {
-  const user = null;
+  const user = localStorage.getItem('emailCo');
+
+  useEffect(() => {
+    const session = () => {
+
+    }
+    return session;
+  }, [user])
 
   return (
     <div className="app">
